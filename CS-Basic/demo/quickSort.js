@@ -14,7 +14,7 @@ let quickSort = (arr, compare) => {
   let chunkF = [] // the chunk of whose return false
 
   let i = 1 // avoid query the pivot
-  for(i; i < arr.length; i ++) {
+  for (i; i < arr.length; i ++) {
     // comparing
     if (compare(pivot, arr[i])) {
       chunkT.push(arr[i])
