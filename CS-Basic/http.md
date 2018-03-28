@@ -1,4 +1,5 @@
-- [计网相关](#%E8%AE%A1%E7%BD%91%E7%9B%B8%E5%85%B3)
+# HTTP相关
+- [HTTP相关](#http%E7%9B%B8%E5%85%B3)
   - [URI & URL](#uri-url)
   - [状态码](#%E7%8A%B6%E6%80%81%E7%A0%81)
     - [1xx 信息](#1xx-%E4%BF%A1%E6%81%AF)
@@ -10,8 +11,6 @@
     - [强缓存](#%E5%BC%BA%E7%BC%93%E5%AD%98)
     - [协商缓存](#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98)
     - [缓存头部对比](#%E7%BC%93%E5%AD%98%E5%A4%B4%E9%83%A8%E5%AF%B9%E6%AF%94)
-
-# 计网相关
 
 ## URI & URL
   - URI = Universal Resource **Identifier** 统一资源标识符

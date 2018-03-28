@@ -1,4 +1,17 @@
 # 基本排序算法
+- [基本排序算法](#%E5%9F%BA%E6%9C%AC%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95)
+  - [复杂度表](#%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%A1%A8)
+  - [Bubble Sort 冒泡排序](#bubble-sort-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F)
+    - [思路](#%E6%80%9D%E8%B7%AF)
+    - [实现](#%E5%AE%9E%E7%8E%B0)
+  - [Quik Sort 快速排序](#quik-sort-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
+    - [思路](#%E6%80%9D%E8%B7%AF)
+    - [实现](#%E5%AE%9E%E7%8E%B0)
+  - [Selection Sort 选择排序](#selection-sort-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F)
+    - [思路](#%E6%80%9D%E8%B7%AF)
+    - [实现](#%E5%AE%9E%E7%8E%B0)
+
+## 复杂度表
 ![各种算法的时间空间复杂度表](./images/sort.png)
 
 ## Bubble Sort 冒泡排序
