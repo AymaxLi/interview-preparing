@@ -1,3 +1,17 @@
+
+- [Block Formating Context](#block-formating-context)
+  - [概念](#%E6%A6%82%E5%BF%B5)
+  - [常见创建 BFC 的方法](#%E5%B8%B8%E8%A7%81%E5%88%9B%E5%BB%BA-bfc-%E7%9A%84%E6%96%B9%E6%B3%95)
+- [Inline Formating Context](#inline-formating-context)
+  - [表现](#%E8%A1%A8%E7%8E%B0)
+  - [条件](#%E6%9D%A1%E4%BB%B6)
+  - [相关](#%E7%9B%B8%E5%85%B3)
+    - [Inline-level elements](#inline-level-elements)
+    - [atomic inline-level box](#atomic-inline-level-box)
+    - [inline-level box](#inline-level-box)
+    - [inline box](#inline-box)
+    - [line box](#line-box)
+
 # Block Formating Context
 ## 概念
 > A block formatting context is a part of a visual CSS rendering of a Web page. It is the region in which the layout of block boxes occurs and in which floats interact with other elements.
