@@ -5,6 +5,7 @@
   - [Quik Sort 快速排序](#quik-sort-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
   - [Selection Sort 选择排序](#selection-sort-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F)
     - [Insertion Sort 插入排序](#insertion-sort-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F)
+    - [Merge Sort 归并排序](#merge-sort-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F)
 
 ## 复杂度表
 ![各种算法的时间空间复杂度表](./images/sort.png)
@@ -157,3 +158,40 @@
   console.log('the res is ', res)
   ```
 
+### Merge Sort 归并排序
+  也是分治法的典型应用，将序列拆分为最小有序序列，再逐步将两个有序序列合并
+
+  ![merge sort](./images/merge-sort.gif)
+
+  平均复杂度 | 最好 | 最坏 | 空间 | 稳定性
+  --- | --- | --- | --- | ---
+  O(n*log2n) | O(n*log2n) | O(n*log2n) | O(1) | 稳定
+
+  ``` javascript
+  let mergeSort = arr => {
+    let merge = (letf, right) => {
+      let final = []
+      // 不停的比较 letf 与 right 的栈顶，小的出栈，直到任意一个栈为空
+      while (left.length && right.length) {
+        final.push(left[0] <= right[0] ? left.shift() : right.shift());
+      }
+
+      return final.concat(left.concat(right))
+    }
+
+    // 最小有序序列
+    let len = arr.length
+    if (len < 2) return arr
+
+    // 分拆
+    let mid = parseInt(len / 2)
+    let left = arr.slice(0, mid)
+    let right = arr.slice(mid)
+
+    // 归并
+    return merge(mergeSort(left), mergeSort(right))
+  }
+
+  res = mergeSort([2, 3, 1, 6, 5, 3, 9, 0])
+  console.log(res)
+  ```
