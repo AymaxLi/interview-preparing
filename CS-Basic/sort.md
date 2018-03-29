@@ -2,10 +2,10 @@
 - [基本排序算法](#%E5%9F%BA%E6%9C%AC%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95)
   - [复杂度表](#%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%A1%A8)
   - [Bubble Sort 冒泡排序](#bubble-sort-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F)
-  - [Quik Sort 快速排序](#quik-sort-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
   - [Selection Sort 选择排序](#selection-sort-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F)
-    - [Insertion Sort 插入排序](#insertion-sort-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F)
-    - [Merge Sort 归并排序](#merge-sort-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F)
+  - [Insertion Sort 插入排序](#insertion-sort-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F)
+  - [Quik Sort 快速排序](#quik-sort-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
+  - [Merge Sort 归并排序](#merge-sort-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F)
 
 ## 复杂度表
 ![各种算法的时间空间复杂度表](./images/sort.png)
@@ -43,6 +43,69 @@
   }
 
   let res = bubbleSort([2, 3, 1, 6, 5, 3, 9, 0])
+  console.log('the res is ', res)
+  ```
+
+## Selection Sort 选择排序
+
+  选择一个最小/最大的数，记录下标，然后进行交换
+
+  平均复杂度 | 最好 | 最坏 | 空间 | 稳定性
+  --- | --- | --- | --- | ---
+  O(n^2) | O(n^2) | O(n^2) | O(1) | 不稳定
+
+  ``` javascript
+  let selectionSort = arr => {
+    let len = arr.length
+    let minIndex, temp
+
+    for (let i = 0; i < len - 1; i++) {
+      minIndex = i
+
+      for (let j = i + 1; j < len; j++) {
+        if (arr[j] < arr[minIndex]) {
+          // find the min element's index
+          minIndex = j
+        }
+      }
+
+      temp = arr[i]
+      arr[i] = arr[minIndex]
+      arr[minIndex] =temp
+    }
+
+    return arr
+  }
+
+  let res = selectionSort([2, 3, 1, 6, 5, 3, 9, 0])
+  console.log('the res is ', res)
+  ```
+
+## Insertion Sort 插入排序
+
+  在已排序序列中**找到相应位置**并插入
+
+  平均复杂度 | 最好 | 最坏 | 空间 | 稳定性
+  --- | --- | --- | --- | ---
+  O(n^2) | O(n) | O(n^2) | O(1) | 稳定
+
+  ``` javascript
+  let insertionSort = arr => {
+
+    for(let i = 1; i < arr.length; i++){
+      for(let j = 0; j < i; j++){
+        if(arr[j] > arr[i]) {
+          // 将 arr[i] 插入到 j
+          arr.splice(j, 0, arr[i])
+          // 将 arr[i + 1] (原a[i])删除
+          arr.splice(i + 1, 1)
+        }
+      }
+    }
+    return arr
+  }
+
+  let res = insertionSort([2, 3, 1, 6, 5, 3, 9, 0])
   console.log('the res is ', res)
   ```
 
@@ -95,70 +158,7 @@
   console.log('result is ', res)
   ```
 
-## Selection Sort 选择排序
-
-  选择一个最小/最大的数，记录下标，然后进行交换
-
-  平均复杂度 | 最好 | 最坏 | 空间 | 稳定性
-  --- | --- | --- | --- | ---
-  O(n^2) | O(n^2) | O(n^2) | O(1) | 不稳定
-
-  ``` javascript
-  let selectionSort = arr => {
-    let len = arr.length
-    let minIndex, temp
-
-    for (let i = 0; i < len - 1; i++) {
-      minIndex = i
-
-      for (let j = i + 1; j < len; j++) {
-        if (arr[j] < arr[minIndex]) {
-          // find the min element's index
-          minIndex = j
-        }
-      }
-
-      temp = arr[i]
-      arr[i] = arr[minIndex]
-      arr[minIndex] =temp
-    }
-
-    return arr
-  }
-
-  let res = selectionSort([2, 3, 1, 6, 5, 3, 9, 0])
-  console.log('the res is ', res)
-  ```
-
-### Insertion Sort 插入排序
-
-  在已排序序列中**找到相应位置**并插入
-
-  平均复杂度 | 最好 | 最坏 | 空间 | 稳定性
-  --- | --- | --- | --- | ---
-  O(n^2) | O(n) | O(n^2) | O(1) | 稳定
-
-  ``` javascript
-  let insertionSort = arr => {
-
-    for(let i = 1; i < arr.length; i++){
-      for(let j = 0; j < i; j++){
-        if(arr[j] > arr[i]) {
-          // 将 arr[i] 插入到 j
-          arr.splice(j, 0, arr[i])
-          // 将 arr[i + 1] (原a[i])删除
-          arr.splice(i + 1, 1)
-        }
-      }
-    }
-    return arr
-  }
-
-  let res = insertionSort([2, 3, 1, 6, 5, 3, 9, 0])
-  console.log('the res is ', res)
-  ```
-
-### Merge Sort 归并排序
+## Merge Sort 归并排序
   也是分治法的典型应用，将序列拆分为最小有序序列，再逐步将两个有序序列合并
 
   ![merge sort](./images/merge-sort.gif)
