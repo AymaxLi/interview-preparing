@@ -2,26 +2,21 @@
 - [基本排序算法](#%E5%9F%BA%E6%9C%AC%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95)
   - [复杂度表](#%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%A1%A8)
   - [Bubble Sort 冒泡排序](#bubble-sort-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F)
-    - [思路](#%E6%80%9D%E8%B7%AF)
-    - [实现](#%E5%AE%9E%E7%8E%B0)
   - [Quik Sort 快速排序](#quik-sort-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
-    - [思路](#%E6%80%9D%E8%B7%AF)
-    - [实现](#%E5%AE%9E%E7%8E%B0)
   - [Selection Sort 选择排序](#selection-sort-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F)
-    - [思路](#%E6%80%9D%E8%B7%AF)
-    - [实现](#%E5%AE%9E%E7%8E%B0)
+    - [Insertion Sort 插入排序](#insertion-sort-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F)
 
 ## 复杂度表
 ![各种算法的时间空间复杂度表](./images/sort.png)
 
 ## Bubble Sort 冒泡排序
-### 思路
+
   通过**两个相邻元素的比较**来把最小或者最大的数交换到最后面
 
   平均复杂度 | 最好 | 最坏 | 空间 | 稳定性
   --- | --- | --- | --- | ---
   O(n^2) | O(n) | O(n^2) | O(1) | 稳定
-### 实现
+
   [bubbleSort.js](./demo/bubbleSort.js)
   ``` javascript
   /**
@@ -52,7 +47,7 @@
 
 ## Quik Sort 快速排序
   > 分治法典型应用。
-### 思路
+
   1. 选取一个 `pivot` (基准)。
   2. 对数组中`除 pivot 外其他元素` 与 `pivot` 利用 `comparing function` (比较函数)进行比较，形成两个子集。
   3. 对两个子集不断重复第一步和第二步，直到**所有子集只剩下一个元素为止**。
@@ -60,7 +55,7 @@
   平均复杂度 | 最好 | 最坏 | 空间 | 稳定性
   --- | --- | --- | --- | ---
   O(n log n) | O(n log n) | O(n^2) | O(log n) | 不稳定
-### 实现
+
   [quickSort.js](./demo/quickSort.js)
   ``` javascript
   /**
@@ -100,13 +95,13 @@
   ```
 
 ## Selection Sort 选择排序
-### 思路
+
   选择一个最小/最大的数，记录下标，然后进行交换
 
   平均复杂度 | 最好 | 最坏 | 空间 | 稳定性
   --- | --- | --- | --- | ---
   O(n^2) | O(n^2) | O(n^2) | O(1) | 不稳定
-### 实现
+
   ``` javascript
   let selectionSort = arr => {
     let len = arr.length
@@ -131,6 +126,34 @@
   }
 
   let res = selectionSort([2, 3, 1, 6, 5, 3, 9, 0])
+  console.log('the res is ', res)
+  ```
+
+### Insertion Sort 插入排序
+
+  在已排序序列中**找到相应位置**并插入
+
+  平均复杂度 | 最好 | 最坏 | 空间 | 稳定性
+  --- | --- | --- | --- | ---
+  O(n^2) | O(n) | O(n^2) | O(1) | 稳定
+
+  ``` javascript
+  let insertionSort = arr => {
+
+    for(let i = 1; i < arr.length; i++){
+      for(let j = 0; j < i; j++){
+        if(arr[j] > arr[i]) {
+          // 将 arr[i] 插入到 j
+          arr.splice(j, 0, arr[i])
+          // 将 arr[i + 1] (原a[i])删除
+          arr.splice(i + 1, 1)
+        }
+      }
+    }
+    return arr
+  }
+
+  let res = insertionSort([2, 3, 1, 6, 5, 3, 9, 0])
   console.log('the res is ', res)
   ```
 
