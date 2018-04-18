@@ -8,6 +8,7 @@
 
 # JavaScript
   - [event loop](./JavaScript/event-loop.md)
+  - [XMLHttpRequest](./JavaScript/xhr.md)
   - [代码片段](./JavaScript/代码片段.md)
 
 # 网络
