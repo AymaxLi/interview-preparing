@@ -10,6 +10,6 @@
   - [event loop](./JavaScript/event-loop.md)
   - [XMLHttpRequest](./JavaScript/xhr.md)
   - [代码片段](./JavaScript/代码片段.md)
-
+  - [继承](./JavaScript/extends.md)
 # 网络
   - [http](./Network/http.md)
